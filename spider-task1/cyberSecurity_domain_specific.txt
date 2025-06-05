@@ -1,0 +1,34 @@
+	CyberSecurity - Domain Specific Task
+
+IP addresses:
+IPv4 : 203.129.195.136, 14.139.162.136
+IPv6: 64:ff9b::cb81:c388, 64:ff9b::e8b:a288
+
+Open Ports:(2)
+80
+443 
+
+
+Services used:
+Frontend: HTML5 + Bootstrap 4.3.1 + JS
+Backend: Node.js + Express.js
+
+Web Server: Nginx 1.20.1 Country[INDIA][IN]
+
+Total Unique Subdomains Found: 9
+api.spider.nitt.edu
+ctf.spider.nitt.edu
+inductions.spider.nitt.edu
+api.inductions.spider.nitt.edu
+grpc.lcas.spider.nitt.edu
+restapis.lcas.spider.nitt.edu
+lynx.spider.nitt.edu
+api.lynx.spider.nitt.edu
+api.lynxid.spider.nitt.edu
+
+ctf.spider.nitt.edu has mismatched ssl certificate, 
+the certificate belongs to grpc.lcas.spider.nitt.edu
+"[mismatched-ssl-certificate] [ssl] [low] ctf.spider.nitt.edu:443 ["CN: grpc.lcas.spider.nitt.edu"]"
+Here the the common name (CN) is "grpc.lcas.spider.nitt.edu" but the certificate is used for "ctf.spider.nitt.edu"
+
+Tools used: nmap,whatweb, sublist3r, nuclei

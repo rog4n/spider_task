@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Hammer Strength Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f25c4d; /* Match the red-orange background of meter */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: #fff;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin-bottom: 25px;
+      color: #fff;
+      text-shadow: 2px 2px 0 #000;
+    }
+
+    #gameContainer {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      background: none;
+    }
+
+    #meterImg {
+      width: 300px;
+      height: 300px;
+      
+      border-radius: 12px;
+    }
+
+    #needle {
+      position: absolute;
+      bottom: 48px;
+      left: 50%;
+      width: 4px;
+      height: 120px;
+      background-color: #000;
+      border-radius: 2px;
+      transform-origin: bottom;
+      transition: transform 0.1s ease;
+      z-index: 2;
+    }
+
+    #hammer {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      transition: transform 0.3s ease;
+      z-index: 3;
+    }
+
+    #stopBtn {
+      margin-top: 30px;
+      background-color: #5d4037; /* Brownish handle tone */
+      border: 3px solid #000;
+      border-radius: 15px;
+      color: #fff;
+      padding: 12px 30px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 3px 3px 0 #000;
+      transition: background-color 0.2s ease;
+    }
+
+    #stopBtn:hover {
+      background-color: #3e2723;
+    }
+
+    #scoreDisplay {
+      margin-top: 20px;
+      font-size: 26px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px 0 #000;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hammer Strength Game</h2>
+  <div id="gameContainer">
+    <img id="meterImg" src="imgs/meter.png" alt="Strength Meter" />
+    <div id="needle"></div>
+    <img id="hammer" src="imgs/hammer-copy.png" alt="Hammer" />
+  </div>
+  <button id="stopBtn">Stop!</button>
+  <div id="scoreDisplay"></div>
+
+  <script>
+    let angle = 0;
+    let direction = 1;
+    let interval;
+    let stopped = false;
+
+    const needle = document.getElementById('needle');
+    const hammer = document.getElementById('hammer');
+    const stopBtn = document.getElementById('stopBtn');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+
+    function updateNeedle() {
+      if (!stopped) {
+        angle += direction * 2;
+        if (angle >= 180 || angle <= 0) direction *= -1;
+        needle.style.transform = `rotate(${angle - 90}deg)`;
+      }
+    }
+
+    function startSwing() {
+      interval = setInterval(updateNeedle, 20);
+    }
+
+    function stopSwing() {
+      stopped = true;
+      clearInterval(interval);
+
+      hammer.style.transform = 'translateX(-50%) translateY(-30px)';
+      setTimeout(() => {
+        hammer.style.transform = 'translateX(-50%) translateY(0)';
+      }, 300);
+
+      const deviation = Math.abs(angle - 90);
+      const score = Math.max(0, Math.round(100 - deviation));
+      scoreDisplay.textContent = `💥 Score: ${score}`;
+      stopBtn.textContent = 'Play Again';
+    }
+
+    stopBtn.addEventListener('click', () => {
+      if (!stopped) {
+        stopSwing();
+      } else {
+        angle = 0;
+        direction = 1;
+        stopped = false;
+        scoreDisplay.textContent = '                ';
+        stopBtn.textContent = 'Stop!';
+        startSwing();
+      }
+    });
+
+    window.onload = startSwing;
+  </script>
+</body>
+</html>

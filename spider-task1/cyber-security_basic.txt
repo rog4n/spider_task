@@ -1,0 +1,88 @@
+	
+	CyberSecurity - Basic task
+
+Target Domain: Netflix
+
+1. A. Environmental Social Governance Report 2021 - 
+      https://ir.netflix.net/files/doc_downloads/2022/03/30/2021-SASB-Report-FINAL.pdf
+      Dork used : site:netflix.net intext:Warning
+
+   B. Report that public companies in the U.S. must file with the U.S. Securities and Exchange Commission(SEC) to announce major events that shareholders(Q4-2024).
+      https://s22.q4cdn.com/959853165/files/doc_downloads/2025/Q4-24-Earnings-8-K.pdf
+      Dork used : site:netflix.net filetype:pdf intext:2025
+
+   C. Annual Report Pursuant To Section 13 Or 15(D) Of The Securities Exchange Act Of 1934 For The Fiscal Year Ended December 31, 2018 -
+      https://ir.netflix.net/files/doc_financials/annual_reports/2018/Form-10K_Q418_Filed.pdf
+      Dork used : site:netflix.net filetype:pdf
+
+2. A. https://swag.netflix.net/beta/login (SWAG - System for Web-based Account Governance login page.)
+      Dork used : site:netflix.net inurl:login
+
+   B. Part of Open Connect infrastructure. Open Connect is Netflix's content delivery network (CDN) designed to efficiently deliver streaming content to users worldwide.
+      https://partnerforms.octools.prod.netflix.net/login?org_id=1912&code=48b2c85b-d8d6-46cf-87fc-be6478f326cf&redirect=%2Fsite-surveys%2F19464 
+      Dork used : site:netflix.net inurl:login
+
+3.    Netflix's public artifact repository, hosted using JFrog Artifactory.
+      https://artifacts-oss.netflix.net/ui/packages 
+      This repository serves as a central location where Netflix publishes and manages its open-source software artifacts.
+      Dork used : site:netflix.net "error"
+
+4.    No logs or error discovered.
+
+5.  
+    Addresses :(found through Netflix help centre website)
+	India  (https://help.netflix.com/en/legal/corpinfo)
+      Contractual partner and point of contact for Netflix members:
+
+      Netflix Entertainment Services India LLP
+      Level 11, Godrej BKC, Plot C-68
+      G Block, BKC- Bandra (East)
+      Mumbai 400051, India
+
+      Data Controller:
+
+      Netflix Entertainment Services India LLP
+      Level 11, Godrej BKC, Plot C-68
+      G Block, BKC- Bandra (East)
+      Mumbai 400051, India
+
+	USA   (https://help.netflix.com/en/legal/corpinfo)
+      Service Provider:
+
+      Netflix, Inc.
+      121 Albright Way
+      Los Gatos, CA 95032, USA
+
+      Data Controller:
+
+      Netflix, Inc.
+      121 Albright Way
+      Los Gatos, CA 95032, USA
+	
+      Phone number:  (https://help.netflix.com/en/contactus)
+      customer care: 000-800-919-1743 (Toll-Free)
+	
+      Dork used : "@netflix.com" intext:email	
+      Emails: info@account.netflix.com, info@join.netflix.com, info@mailer.netflix.com, info@members.netflix.com, info@partner.netflix.com, surveys@mailer.netflix.com
+	      phishing@netflix.com
+	      akhurana@netflix.com(Director, Public Policy,Netflix)
+      	
+
+6.    No Git or .env file found.
+
+
+
+
+
+
+
+
+
+
+		
+	
+
+
+
+      
+
